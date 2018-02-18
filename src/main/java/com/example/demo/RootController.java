@@ -120,6 +120,20 @@ public class RootController {
 							index = islands.length-1;
 							return index;//myRight;//x2;
 						}
+					}else if(x1==y1) {
+						if(x2>y2) {
+							myBucket.addAll(myT2);
+							hisBucket.addAll(hisT2);
+							myBucket.add(myRight);
+							index = islands.length-1;
+							return index;//myLeft;//x1;
+						}else {
+							myBucket.addAll(myT1);
+							hisBucket.addAll(hisT1);
+							myBucket.add(myLeft);
+							index = 0;
+							return index;//myRight;//x2;
+						}
 					}else {
 						myBucket.addAll(myT1);
 						hisBucket.addAll(hisT1);
@@ -207,6 +221,20 @@ public class RootController {
 							hisBucket.add(hisRight);
 							index = islands.length-1;
 							return index;//hisRight;//x2;
+						}
+					}else if(x1==y1) {
+						if(x2>y2) {
+							myBucket.addAll(myT2);
+							hisBucket.addAll(hisT2);
+							hisBucket.add(myRight);
+							index = islands.length-1;
+							return index;//myLeft;//x1;
+						}else {
+							myBucket.addAll(myT1);
+							hisBucket.addAll(hisT1);
+							hisBucket.add(myLeft);
+							index = 0;
+							return index;//myRight;//x2;
 						}
 					}else {
 						hisBucket.addAll(hisT1);
