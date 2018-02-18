@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @EnableAutoConfiguration
 public class RootController {
 
-	
+	@CrossOrigin(origins = "*")
 	@RequestMapping("/")
 	String home() {
         return "Hello World!";
