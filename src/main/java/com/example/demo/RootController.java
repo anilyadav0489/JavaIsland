@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.*;
 public class RootController {
 
 	@CrossOrigin(origins = "*")
-	@RequestMapping("/")
-	String pickBest(@RequestParam(required=false, defaultValue="1,2") String islands) {
-		/*String[] islandStr = islands.split(",");
-		int[] islandsArray = {};//new Array[islandStr.length];
+	@RequestMapping("/main")
+	String pickBest(@RequestParam("data") String islands) {
+		String[] islandStr = islands.split(",");
+		int[] islandsArray = new int[islandStr.length];//new Array[islandStr.length];
 		int index = 0;
 		for(String str: islandStr) {
-			islandsArray[index] = Integer.parseInt(str);
-		}*/
-		String str = "Helo World";
-		if(null != islands && !islands.isEmpty()) {
-			str = islands;
+			islandsArray[index++] = Integer.parseInt(str);
 		}
+
+		ArrayList<Integer> myBucket = new ArrayList<Integer>();
+		ArrayList<Integer> hisBucket = new ArrayList<Integer>();
+		int num = getTheBest(islandsArray, true, myBucket, hisBucket);
 		
-        return str;
+		
+		
+        return ""+num;
     }
 	
 	public int getTheBest(int[] islands, boolean myTurn, ArrayList<Integer> myBucket, ArrayList<Integer> hisBucket) {
